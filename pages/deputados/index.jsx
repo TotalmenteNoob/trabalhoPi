@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const index = ({ deputados }) => {
     return (
-        <Pagina titulo="Deputados">
+        <Pagina titulo="Deputados" barra = 'Deputados'>
             <Container>
                 <Row>
                     {deputados.map(item => (

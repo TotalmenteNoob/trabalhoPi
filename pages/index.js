@@ -5,7 +5,7 @@ import Pagina from '@/components/Pagina';
 
 const index = () => {
   return (
-    <Pagina titulo = 'Página inicial'>
+    <Pagina titulo='Página inicial' barra='Início'>
 
     </Pagina>
   )
