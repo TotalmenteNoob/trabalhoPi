@@ -5,14 +5,15 @@ import apiDeputados from '@/services/apiDeputados'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import Link from 'next/link'
 
-const index = ({ deputados }) => {
+const index = ({ partidos }) => {
     return (
-        <Pagina titulo="Deputados" barra = 'Deputados' ativo1='active'>
+        <Pagina titulo="Partidos" barra='Partidos' ativo2='active'>
             <Container>
                 <Row>
-                    {deputados.map(item => (
+                    {partidos.map(item => (
                         <Col md={2}>
-                            <Link href={'deputados/detalhesDeputados/' + item.id}><Card.Img className='card bg-secondary m-2' variant='top' src={item.urlFoto}></Card.Img></Link>
+                            <Link href={'partidos/detalhespartidos/' + item.id}><Card.Img className='card bg-secondary m-2' variant='top' src={item.urlLogo}></Card.Img></Link>
+                            <h1>{item.sigla}</h1>
                         </Col>
                     ))}
                 </Row>
@@ -25,10 +26,10 @@ export default index
 
 export async function getServerSideProps(context) {
 
-    const resultado = await apiDeputados.get('/deputados')
-    const deputados = resultado.data.dados
+    const resultado = await apiDeputados.get('/partidos')
+    const partidos = resultado.data.dados
 
     return {
-        props: { deputados }, // will be passed to the page component as props
+        props: { partidos }, // will be passed to the page component as props
     }
 }
