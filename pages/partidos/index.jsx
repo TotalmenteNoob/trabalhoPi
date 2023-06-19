@@ -11,9 +11,15 @@ const index = ({ partidos }) => {
             <Container>
                 <Row>
                     {partidos.map(item => (
-                        <Col md={2}>
-                            <Link href={'partidos/detalhespartidos/' + item.id}><Card.Img className='card bg-secondary m-2' variant='top' src={item.urlLogo}></Card.Img></Link>
-                            <h1>{item.sigla}</h1>
+                        <Col md={4} className=' mb-3'>
+                            <Link href={'partidos/detalhesPartidos/' + item.id}>
+                                <Card border="info">
+                                    <Card.Header>{item.sigla}</Card.Header>
+                                    <Card.Body>
+                                        <Card.Title>{item.nome}</Card.Title>
+                                    </Card.Body>
+                                </Card>
+                            </Link>
                         </Col>
                     ))}
                 </Row>

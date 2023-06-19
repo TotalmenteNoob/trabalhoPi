@@ -4,10 +4,11 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Col, Container, Row, Table } from "react-bootstrap";
 import Link from "next/link";
+import { BsArrowReturnLeft } from 'react-icons/Bs';
 
 const Atores = ({ deputados, despesas, profissoes }) => {
   return (
-    <Pagina titulo="Detalhes">
+    <Pagina titulo="Deputados" barra = 'Deputados' ativo1='active'>
       <Container>
         <Row>
           <Col md={3}>
@@ -20,6 +21,7 @@ const Atores = ({ deputados, despesas, profissoes }) => {
               </Card.Body>
             </Card>
             <Button variant="danger my-2" href="/deputados">
+            <BsArrowReturnLeft size={15} className="me-1"/>
               Voltar
             </Button>
           </Col>
