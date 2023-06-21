@@ -8,20 +8,20 @@ import Link from 'next/link'
 const Index = ({ partidos }) => {
   return (
     <Pagina titulo="Partidos" barra="Partidos" ativo2="active">
-        <Row>
-          {partidos.map((item) => (
-            <Col md={4} className="mb-3" key={item.id}>
-              <Link href={'partidos/detalhesPartidos/' + item.id}>
-                <Card border="info">
-                  <Card.Header>{item.sigla}</Card.Header>
-                  <Card.Body>
-                    <Card.Title>{item.nome}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </Col>
-          ))}
-        </Row>
+      <Row>
+        {partidos.map((item) => (
+          <Col md={4} className="mb-3" key={item.id}>
+            <Link href={'partidos/detalhesPartidos/' + item.id}>
+              <Card border="info">
+                <Card.Header>{item.sigla}</Card.Header>
+                <Card.Body>
+                  <Card.Title>{item.nome}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
+          </Col>
+        ))}
+      </Row>
     </Pagina>
   )
 }

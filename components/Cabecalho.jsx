@@ -11,10 +11,7 @@ const Cabecalho = (props) => {
           <Nav className="me-auto">
             <Nav.Link href="/deputados/" className={props.deputados}>Deputados</Nav.Link>
             <Nav.Link href="/partidos/" className={props.partidos}>Partidos</Nav.Link>
-            <NavDropdown title="Deputados" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/deputados/">Todos os deputados</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/proposicoes/" className={props.proposicoes}>Proposições</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

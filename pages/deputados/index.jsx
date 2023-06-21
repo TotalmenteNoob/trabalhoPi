@@ -8,23 +8,22 @@ import Link from 'next/link'
 const index = ({ deputados }) => {
     return (
         <Pagina titulo="Deputados" barra='Deputados' ativo1='active'>
-                <Row>
-                    {deputados.map(item => (
-                        <Col md={2} className=' mt-3 mb-3'>
-                            <Link href={'deputados/detalhesDeputados/' + item.id}>
-                                <Card border="info">
-                                    <Card.Img variant="top" src={item.urlFoto} />
-                                    <Card.Header><h5>{item.nome}</h5></Card.Header>
-                                    <Card.Body>
-                                        <Card.Text><b> Partido: </b>{item.siglaPartido}</Card.Text>
-                                        <Card.Text><b> UF: </b>{item.siglaUf}</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Link>
-                        </Col>
-
-                    ))}
-                </Row>
+            <Row>
+                {deputados.map(item => (
+                    <Col md={2} className=' mt-3 mb-3'>
+                        <Link href={'deputados/detalhesDeputados/' + item.id}>
+                            <Card border="info">
+                                <Card.Img variant="top" src={item.urlFoto} />
+                                <Card.Header><h5>{item.nome}</h5></Card.Header>
+                                <Card.Body>
+                                    <Card.Text><b> Partido: </b>{item.siglaPartido}</Card.Text>
+                                    <Card.Text><b> UF: </b>{item.siglaUf}</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Link>
+                    </Col>
+                ))}
+            </Row>
         </Pagina>
     )
 }

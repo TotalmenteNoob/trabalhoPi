@@ -14,7 +14,7 @@ import { AiOutlineGithub } from 'react-icons/Ai';
 
 export default function App() {
   return (
-    <MDBFooter className='bg-secondary text-center text-white'>
+    <MDBFooter className='bg-info text-center text-white'>
       <MDBContainer className='p-4 pb-0'>
         <section className='mb-4'>
           <MDBBtn
@@ -63,7 +63,7 @@ export default function App() {
         </section>
       </MDBContainer>
 
-      <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+      <div className='bg-primary text-center p-3' >
       &copy; 2023 Copyright:&nbsp; 
         <a className='text-white' href='https://mdbootstrap.com/'>
           A editar
