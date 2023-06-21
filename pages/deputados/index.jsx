@@ -8,7 +8,6 @@ import Link from 'next/link'
 const index = ({ deputados }) => {
     return (
         <Pagina titulo="Deputados" barra='Deputados' ativo1='active'>
-            <Container>
                 <Row>
                     {deputados.map(item => (
                         <Col md={2} className=' mt-3 mb-3'>
@@ -26,7 +25,6 @@ const index = ({ deputados }) => {
 
                     ))}
                 </Row>
-            </Container>
         </Pagina>
     )
 }

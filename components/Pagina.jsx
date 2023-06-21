@@ -10,15 +10,17 @@ const Pagina = (props) => {
     <>
 
       <title>{props.barra}</title>
-      <Cabecalho deputados={props.ativo1} partidos={props.ativo2}/>
+      <Cabecalho deputados={props.ativo1} partidos={props.ativo2} />
       <div className="bg-secondary py-3 text-white text-center mb-3">
         <Container>
           <h1>{props.titulo}</h1>
         </Container>
       </div>
-      {props.children}{" "}
+      <Container>
+        {props.children}{" "}
+      </Container>
       {/*a props.children serve para colocar o conteudo onde quiser na página*/}
-      <App/>
+      <App />
     </>
   );
 };
