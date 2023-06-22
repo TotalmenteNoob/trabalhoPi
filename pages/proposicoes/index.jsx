@@ -31,7 +31,7 @@ export default index
 
 export async function getServerSideProps(context) {
 
-    const resultado = await apiDeputados.get('/proposicoes')
+    const resultado = await apiDeputados.get('/proposicoes?ordem=DESC')
     const proposicoes = resultado.data.dados
 
     return {

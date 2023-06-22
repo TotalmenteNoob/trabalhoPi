@@ -5,9 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Col, Container, Row, Table } from "react-bootstrap";
 import Link from "next/link";
 import { BsArrowReturnLeft } from 'react-icons/Bs';
+import { HiInformationCircle } from 'react-icons/Hi';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/Fa';
 
-const Atores = ({ deputados, despesas, profissoes }) => {
+const idDeputados = ({ deputados, despesas, profissoes }) => {
 
   const formatarData = (data) => {
     const dataObjeto = new Date(data);
@@ -37,6 +38,10 @@ const Atores = ({ deputados, despesas, profissoes }) => {
                   <Card.Text>Telefone: {deputados.ultimoStatus.gabinete.telefone}</Card.Text>
                 </Card.Body>
               </Card>
+              {/* <Button variant="success my-2" href={"https://www.camara.leg.br/deputados/" + deputados.id} target="_blank">
+                Mais informações
+                <HiInformationCircle size={20} className="me-1" />
+              </Button> */}
               <Button variant="danger my-2" href="/deputados">
                 <BsArrowReturnLeft size={15} className="me-1" />
                 Voltar
@@ -139,7 +144,7 @@ const Atores = ({ deputados, despesas, profissoes }) => {
   );
 };
 
-export default Atores;
+export default idDeputados;
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
