@@ -2,8 +2,6 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container } from "react-bootstrap";
 import Cabecalho from "./Cabecalho";
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import App from "./Rodape";
 
 const Pagina = (props) => {
   return (
@@ -20,7 +18,6 @@ const Pagina = (props) => {
         {props.children}{" "}
       </Container>
       {/*a props.children serve para colocar o conteudo onde quiser na página*/}
-      <App />
     </>
   );
 };
