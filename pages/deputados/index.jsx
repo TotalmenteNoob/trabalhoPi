@@ -54,7 +54,7 @@ const Index = ({ deputados }) => {
         {currentDeputados.map((item) => (
           <Col md={2} className="mt-3 mb-3" key={item.id}>
             <Link href={'deputados/detalhesDeputados/' + item.id}>
-              <Card border="info">
+              <Card>
                 <Card.Img variant="top" src={item.urlFoto} />
                 <Card.Header>
                   <h5>{item.nome}</h5>

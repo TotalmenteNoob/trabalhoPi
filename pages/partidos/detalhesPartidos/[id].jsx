@@ -17,9 +17,9 @@ const idPartidos = ({ partidos, lideres, membros, proposicoes }) => {
             <Card.Img variant="top" src={partidos.urlLogo}></Card.Img>
             <Card.Body>
               <Card.Title><h1>{partidos.nome}</h1></Card.Title>
-              <Card.Text>Sigla: {partidos.sigla}</Card.Text>
-              <Card.Text>Situação: {partidos.status.situacao}</Card.Text>
-              <Card.Text>Total de membros: {partidos.status.totalMembros}</Card.Text>
+              <Card.Text><strong>Sigla:</strong> {partidos.sigla}</Card.Text>
+              <Card.Text><strong>Situação:</strong> {partidos.status.situacao}</Card.Text>
+              <Card.Text><strong>Total de membros:</strong> {partidos.status.totalMembros}</Card.Text>
             </Card.Body>
           </Card>
           <Button variant="danger my-2" href="/partidos">
@@ -32,7 +32,7 @@ const idPartidos = ({ partidos, lideres, membros, proposicoes }) => {
           {proposicoes.slice(0, 3).map(item => (
             <Row md={8} className=' mt-3 mb-3'>
               <Link href={'../../proposicoes/detalhesProposicoes/' + item.id}>
-                <Card border="info">
+                <Card>
                   <Card.Header><h5>{item.siglaTipo} {item.numero}/{item.ano}</h5></Card.Header>
                   <Card.Body>
                     <Card.Text><b> Ementa: </b>{item.ementa}</Card.Text>
@@ -60,7 +60,7 @@ const idPartidos = ({ partidos, lideres, membros, proposicoes }) => {
           {lideres.map((item) => (
             <Col md={3} className="mt-3 mb-3" key={item.id}>
               <Link href={"../../deputados/detalhesDeputados/" + item.id}>
-                <Card border="info">
+                <Card>
                   <Card.Img variant="top" src={item.urlFoto} />
                   <Card.Header>
                     <h2>{item.nome}</h2>
@@ -89,7 +89,7 @@ const idPartidos = ({ partidos, lideres, membros, proposicoes }) => {
         {membros.map(item => (
           <Col md={3} className=' mt-3 mb-3'>
             <Link href={'../../deputados/detalhesDeputados/' + item.id}>
-              <Card border="info">
+              <Card>
                 <Card.Img variant="top" src={item.urlFoto} />
                 <Card.Header><h2>{item.nome}</h2></Card.Header>
                 <Card.Body>

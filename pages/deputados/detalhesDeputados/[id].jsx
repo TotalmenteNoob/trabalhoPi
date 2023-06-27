@@ -4,7 +4,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Col, Container, Row, Table } from "react-bootstrap";
 import Link from "next/link";
-import { BsArrowReturnLeft } from 'react-icons/Bs';
+import { BsArrowReturnLeft, BsInfoCircle } from 'react-icons/Bs';
 import { HiInformationCircle } from 'react-icons/Hi';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/Fa';
 
@@ -25,40 +25,49 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
           <Card>
             <Card.Img variant="top" src={deputados.ultimoStatus.urlFoto} />
             <Card.Body>
-            <h1>Informações pessoais</h1>
-              <Card.Text>Partido: {deputados.ultimoStatus.siglaPartido}</Card.Text>
-              <Card.Text>UF: {deputados.ultimoStatus.siglaUf}</Card.Text>
+              <h3>Informações pessoais</h3>
+              <Card.Text><strong>Partido:</strong> {deputados.ultimoStatus.siglaPartido}</Card.Text>
+              <Card.Text><strong> UF:</strong> {deputados.ultimoStatus.siglaUf}</Card.Text>
               {deputados.nomeCivil && (
-                    <Card.Text>Nome civil: {deputados.nomeCivil}</Card.Text>
-                  )}
-                  {deputados.ufNascimento && (
-                    <Card.Text>Estado de nascimento: {deputados.ufNascimento}</Card.Text>
-                  )}
-                  {deputados.municipioNascimento && (
-                    <Card.Text>Município de nascimento: {deputados.municipioNascimento}</Card.Text>
-                  )}
-                  {deputados.dataNascimento && (
-                    <Card.Text>Data de nascimento: {formatarData(deputados.dataNascimento)}</Card.Text>
-                  )}
-                  {deputados.escolaridade && (
-                    <Card.Text>Escolaridade: {deputados.escolaridade}</Card.Text>
-                  )}
+                <Card.Text><strong>Nome civil:</strong> {deputados.nomeCivil}</Card.Text>
+              )}
+              {deputados.ufNascimento && (
+                <Card.Text><strong>Estado de nascimento:</strong> {deputados.ufNascimento}</Card.Text>
+              )}
+              {deputados.municipioNascimento && (
+                <Card.Text><strong>Município de nascimento:</strong> {deputados.municipioNascimento}</Card.Text>
+              )}
+              {deputados.dataNascimento && (
+                <Card.Text><strong>Data de nascimento:</strong> {formatarData(deputados.dataNascimento)}</Card.Text>
+              )}
+              {deputados.escolaridade && (
+                <Card.Text><strong>Escolaridade:</strong> {deputados.escolaridade}</Card.Text>
+              )}
+              <p>
+                <strong>Profissões: </strong>
+                {profissoes.map((item, index) => (
+                  <React.Fragment key={item.id}>
+                    {index > 0 && ", "}
+                    {item.titulo}
+                  </React.Fragment>
+                ))}
+              </p>
             </Card.Body>
           </Card>
           <Row>
             <Col>
               <Card className="my-1">
                 <Card.Body>
-                  <Card.Title>Contatos</Card.Title>
-                  <Card.Text>Email: {deputados.ultimoStatus.gabinete.email}</Card.Text>
-                  <Card.Text>Telefone: {deputados.ultimoStatus.gabinete.telefone}</Card.Text>
+                  <Card.Title><strong>Contatos</strong></Card.Title>
+                  <Card.Text><strong>Email:</strong> {deputados.ultimoStatus.gabinete.email}</Card.Text>
+                  <Card.Text><strong>Telefone:</strong> {deputados.ultimoStatus.gabinete.telefone}</Card.Text>
                 </Card.Body>
               </Card>
-              {/* <Button variant="success my-2" href={"https://www.camara.leg.br/deputados/" + deputados.id} target="_blank">
+              <Button variant="success my-2 me-2" href={"https://www.camara.leg.br/deputados/" + deputados.id} target="_blank">
                 Mais informações
-                <HiInformationCircle size={20} className="me-1" />
-              </Button> */}
-              <Button variant="danger my-2" href="/deputados">
+                <BsInfoCircle size={20} className="ms-1" />
+              </Button>
+              <Button variant="danger my-2 " href="/deputados">
                 <BsArrowReturnLeft size={15} className="me-1" />
                 Voltar
               </Button>
@@ -68,7 +77,7 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
         <Col md={6}>
           <Col>
             <Row>
-              <h1>gráficos</h1>
+              <h1>Gráficos</h1>
               <Card className="my-1">
               </Card>
             </Row>
@@ -130,12 +139,6 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
               </ul>
             </Col>
           </Row>
-          <h1>Profissões</h1>
-          <ul>
-            {profissoes.map((item) => (
-              <li key={item.id}>{item.titulo}</li>
-            ))}
-          </ul>
         </Col>
 
       </Row>

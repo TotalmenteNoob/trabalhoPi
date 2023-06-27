@@ -3,9 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Image } from "react-bootstrap";
 import Cabecalho from "./Cabecalho";
 import styles from '../styles/Home.module.css'
-
-
-
+import Rodape from "./Rodape";
 
 const Pagina = (props) => {
   return (
@@ -24,6 +22,7 @@ const Pagina = (props) => {
         </Container>
       </div>
       {/*a props.children serve para colocar o conteudo onde quiser na página*/}
+      <Rodape/>
     </>
   );
 };
