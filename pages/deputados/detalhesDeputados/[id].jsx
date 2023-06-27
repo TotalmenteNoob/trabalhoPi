@@ -7,6 +7,10 @@ import Link from "next/link";
 import { BsArrowReturnLeft, BsInfoCircle } from 'react-icons/Bs';
 import { HiInformationCircle } from 'react-icons/Hi';
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/Fa';
+import { Timeline } from "react-twitter-widgets";
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip,Legend} from 'chart.js'
+import { Bar } from 'react-chartjs-2'
+
 
 const idDeputados = ({ deputados, despesas, profissoes }) => {
 
@@ -18,6 +22,55 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
     return `${dia}/${mes}/${ano}`;
   };
 
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  )
+  
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top'
+        
+      },
+    },
+  };
+  
+let labels =  ['','Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho','Agosto','Setembro', 'Outubro', 'Novembro', 'Dezembro']
+
+const grup = despesas.reduce((acc,item) => {
+  if (acc[item.mes]) {
+    acc[item.mes] += item.valorDocumento
+  } else {
+    acc[item.mes] = item.valorDocumento
+  }
+  return acc
+}, {});
+
+const dadosChar = [
+  ['mes', 'valor'], 
+  ...Object.entries(grup)
+] 
+
+  
+let data = {
+    labels,
+    datasets: [
+      {
+        label: 'Valor de 2022',
+        data: dadosChar,
+        backgroundColor: 'rgb(53, 162, 235)',
+        labels
+      },
+    ],
+  }
+  
+  
   return (
     <Pagina titulo={deputados.ultimoStatus.nome} barra='Deputados' ativo1='active'>
       <Row>
@@ -78,6 +131,7 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
           <Col>
             <Row>
               <h1>Gráficos</h1>
+              <Bar data={data} options={options} />
               <Card className="my-1">
               </Card>
             </Row>
@@ -139,8 +193,17 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
               </ul>
             </Col>
           </Row>
+              <Timeline>
+                dataSource={{
+                  sourceType:'profile',
+                  screenName: 'camaradeputados'
+                }}
+                options={{
+                  weight:'1000',
+                  width:'1500'
+                }}
+              </Timeline>
         </Col>
-
       </Row>
     </Pagina>
   );
@@ -155,7 +218,7 @@ export async function getServerSideProps(context) {
   const deputados = resultado.data.dados;
 
   const resultadoDespesas = await apiDeputados.get(
-    "/deputados/" + id + "/despesas"
+    "/deputados/" + id + "/despesas?ano=2022&itens=100&ordem=ASC"
   );
   const despesas = resultadoDespesas.data.dados;
 
