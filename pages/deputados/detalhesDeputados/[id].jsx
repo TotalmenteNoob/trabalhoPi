@@ -25,8 +25,24 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
           <Card>
             <Card.Img variant="top" src={deputados.ultimoStatus.urlFoto} />
             <Card.Body>
+            <h1>Informações pessoais</h1>
               <Card.Text>Partido: {deputados.ultimoStatus.siglaPartido}</Card.Text>
               <Card.Text>UF: {deputados.ultimoStatus.siglaUf}</Card.Text>
+              {deputados.nomeCivil && (
+                    <Card.Text>Nome civil: {deputados.nomeCivil}</Card.Text>
+                  )}
+                  {deputados.ufNascimento && (
+                    <Card.Text>Estado de nascimento: {deputados.ufNascimento}</Card.Text>
+                  )}
+                  {deputados.municipioNascimento && (
+                    <Card.Text>Município de nascimento: {deputados.municipioNascimento}</Card.Text>
+                  )}
+                  {deputados.dataNascimento && (
+                    <Card.Text>Data de nascimento: {formatarData(deputados.dataNascimento)}</Card.Text>
+                  )}
+                  {deputados.escolaridade && (
+                    <Card.Text>Escolaridade: {deputados.escolaridade}</Card.Text>
+                  )}
             </Card.Body>
           </Card>
           <Row>
@@ -52,25 +68,8 @@ const idDeputados = ({ deputados, despesas, profissoes }) => {
         <Col md={6}>
           <Col>
             <Row>
-              <h1>Informações pessoais</h1>
+              <h1>gráficos</h1>
               <Card className="my-1">
-                <Card.Body>
-                  {deputados.nomeCivil && (
-                    <Card.Text>Nome civil: {deputados.nomeCivil}</Card.Text>
-                  )}
-                  {deputados.ufNascimento && (
-                    <Card.Text>Estado de nascimento: {deputados.ufNascimento}</Card.Text>
-                  )}
-                  {deputados.municipioNascimento && (
-                    <Card.Text>Município de nascimento: {deputados.municipioNascimento}</Card.Text>
-                  )}
-                  {deputados.dataNascimento && (
-                    <Card.Text>Data de nascimento: {formatarData(deputados.dataNascimento)}</Card.Text>
-                  )}
-                  {deputados.escolaridade && (
-                    <Card.Text>Escolaridade: {deputados.escolaridade}</Card.Text>
-                  )}
-                </Card.Body>
               </Card>
             </Row>
           </Col>

@@ -1,7 +1,11 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import Cabecalho from "./Cabecalho";
+import styles from '../styles/Home.module.css'
+
+
+
 
 const Pagina = (props) => {
   return (
@@ -14,9 +18,11 @@ const Pagina = (props) => {
           <h1>{props.titulo}</h1>
         </Container>
       </div>
-      <Container>
-        {props.children}{" "}
-      </Container>
+      <div className={styles.image}>
+        <Container>
+          {props.children}{" "}
+        </Container>
+      </div>
       {/*a props.children serve para colocar o conteudo onde quiser na página*/}
     </>
   );
